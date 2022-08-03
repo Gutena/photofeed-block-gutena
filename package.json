@@ -14,9 +14,13 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^23.5.0"
+		"@wordpress/scripts": "^23.5.0",
+		"del": "^6.0.0",
+		"gulp": "^4.0.2",
+		"gulp-wp-pot": "^2.5.0",
+		"gulp-zip": "^5.1.0"
 	},
 	"dependencies": {
-		"classnames": "^2.3.1"
+		"gulp-cli": "^2.3.0"
 	}
 }
