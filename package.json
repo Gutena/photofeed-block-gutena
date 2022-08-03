@@ -21,6 +21,7 @@
 		"gulp-zip": "^5.1.0"
 	},
 	"dependencies": {
+		"classnames": "^2.3.1",
 		"gulp-cli": "^2.3.0"
 	}
 }
