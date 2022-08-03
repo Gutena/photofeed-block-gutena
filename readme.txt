@@ -49,10 +49,6 @@ If you like this plugin, consider exploring our other themes and plugins:
 1. Or you can upload the `photofeed-block-gutena` folder to the `/wp-content/plugins/` directory manually.
 1. Activate PhotoFeed Block by Gutena from your Plugins page.
 
-== Screenshots ==
-
-1. Block Settings
-
 == Changelog ==
 
 = 1.0.0 =
