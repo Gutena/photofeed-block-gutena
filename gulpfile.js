@@ -20,7 +20,7 @@ function create_pot() {
     return gulp.src( potPath )
         .pipe( wpPot( {
             domain: 'photofeed-block-gutena',
-            package: 'Newsletter Block by Gutena',
+            package: 'Gutena PhotoFeed',
             copyrightText: 'ExpressTech',
             ignoreTemplateNameHeader: true
         } ) )

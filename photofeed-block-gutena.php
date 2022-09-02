@@ -1,8 +1,8 @@
 <?php // @codingStandardsIgnoreLine
 /**
- * Plugin Name:     PhotoFeed Block by Gutena
+ * Plugin Name:     Gutena PhotoFeed
  * Description:     PhotoFeed Gallery Block by Gutena
- * Version:         1.0.0
+ * Version:         1.0.1
  * Author:          ExpressTech
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Gutena_Instagram_Gallery' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '1.0.0';
+		public $version = '1.0.1';
 
 		/**
 		 * Instance of this class.

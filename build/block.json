@@ -6,7 +6,6 @@
   "category": "gutena",
   "description": "Instagram Gallery for Block Editor by Gutena",
   "textdomain": "photofeed-block-gutena",
-  "icon": "instagram",
   "attributes": {
     "instagramToken": {
       "type": "string",
