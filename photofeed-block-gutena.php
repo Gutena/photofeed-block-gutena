@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Gutena PhotoFeed
  * Description:     PhotoFeed Gallery Block by Gutena
- * Version:         1.0.1
+ * Version:         1.0.2
  * Author:          ExpressTech
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Gutena_Instagram_Gallery' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '1.0.1';
+		public $version = '1.0.2';
 
 		/**
 		 * Instance of this class.
@@ -93,8 +93,11 @@ if ( ! class_exists( 'Gutena_Instagram_Gallery' ) ) {
 				'count'          => 6,
 				'gridGap'        => '1.5rem',
 				'hoverColor'     => '#008CBA',
-				'opacity'        => '0.5',
+				'hoverEffect'    => 'none',
+				'opacity'        => '1',
 				'linkType'       => 'none',
+				'linkTarget'     => '_blank',
+				'showCaption'    => true, 
 			] );
 
 			$images = $this->get_instagram_images( $attributes['instagramToken'] );
@@ -104,18 +107,24 @@ if ( ! class_exists( 'Gutena_Instagram_Gallery' ) ) {
 
 			$images = array_slice( $images['data'], 0, $attributes['count'] );
 
-			$output = '<ul class="photofeed-blocks-grid columns-' . esc_attr( $attributes['columns'] ) . '" style="--gutena--photofeed-block-gap: ' . esc_attr( $attributes['gridGap'] ) . ';--gutena--photofeed-image-hover-color: ' . esc_attr( $attributes['hoverColor'] ) . ';--gutena--photofeed-image-hover-opacity: ' . esc_attr( $attributes['opacity'] ) . ';">';
+			$output = '<div class="photofeed-blocks-grid columns-' . esc_attr( $attributes['columns'] ) . '" style="--gutena--photofeed-block-gap: ' . esc_attr( $attributes['gridGap'] ) . ';--gutena--photofeed-image-hover-color: ' . esc_attr( $attributes['hoverColor'] ) . ';--gutena--photofeed-image-hover-opacity: ' . esc_attr( $attributes['opacity'] ) . ';">';
 			foreach ( $images as $image ) {
-				$output .= '<li class="photofeed-block-item">';
-					$content = '<img src="' . esc_url( $image['media_url'] ) . '" alt="' . ( ! empty( $image['caption'] ) ? esc_attr( wp_trim_words( $image['caption'], 10 ) ) : '' ) . '" class="instagram-image" />';
-					$content .= '<div class="overlay" title="' . ( ! empty( $image['caption'] ) ? esc_attr( $image['caption'] ) : '' ) . '"></div>';
+				$output .= '<div class="photofeed-block-item">';
+					$content = '<figure class="photofeed-block-item-inner ' . esc_attr( $attributes['hoverEffect'] ) . '">';
+						$content .= '<img src="' . esc_url( $image['media_url'] ) . '" alt="' . ( ! empty( $image['caption'] ) ? esc_attr( wp_trim_words( $image['caption'], 10 ) ) : '' ) . '" class="instagram-image" />';
+						$content .= '<figcaption class="overlay">';
+							if ( $attributes['showCaption'] ) {
+								$content .= '<div class="text">' . ( ! empty( $image['caption'] ) ? esc_attr( $image['caption'] ) : '' ) . '</div>';
+							}
+						$content .= '</figcaption>';
+					$content .= '</figure>';
 					if ( 'none' !== $attributes['linkType'] ) {
-						$content = '<a href="' . ( 'media' === $attributes['linkType'] ? esc_url( $image['media_url'] ) : esc_url( $image['permalink'] ) ) .'" target="_blank">' . $content . '</a>';
+						$content = '<a href="' . ( 'media' === $attributes['linkType'] ? esc_url( $image['media_url'] ) : esc_url( $image['permalink'] ) ) .'" target="' .  esc_attr( $attributes['linkTarget'] ) . '" rel="noreferrer">' . $content . '</a>';
 					}
 					$output .= $content;
-				$output .= '</li>';
+				$output .= '</div>';
 			}
-            $output .= '</ul>';
+            $output .= '</div>';
 
 			return sprintf(
 				'<div %1$s>%2$s</div>',

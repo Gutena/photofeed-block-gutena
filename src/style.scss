@@ -1,4 +1,4 @@
-ul.photofeed-blocks-grid {
+.photofeed-blocks-grid {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -18,46 +18,99 @@ ul.photofeed-blocks-grid {
 
     .photofeed-block-item {
         position: relative;
+        height: 100%;
+        overflow: hidden;
 
-        &:hover .overlay {
-            opacity: var( --gutena--photofeed-image-hover-opacity, 0.5 );
+        &:hover {
+            .photofeed-block-item-inner {
+                &.zoom-in {
+                    .instagram-image {
+                        transform: scale(1.1);
+                    }
+                }
+
+                &.zoom-out {
+                    .instagram-image {
+                        transform: scale(1);
+                    }
+                }
+
+                &.rotate-in {
+                    .instagram-image {
+                        transform: scale(1.1) rotate(3deg);
+                    }
+                }
+
+                &.rotate-out {
+                    .instagram-image {
+                        transform: scale(1) rotate(0deg);
+                    }
+                }
+
+                figcaption {
+                    opacity: 1;
+                }
+            }
         }
-
-        figure {
-            padding: 0;
+        
+        .photofeed-block-item-inner {
+            height: 100%;
+            width: 100%;
             margin: 0;
-        }
+            position: relative;
+            transition: all 0.4s ease-in-out;
 
-        img.instagram-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+            &:hover .overlay {
+                opacity: var( --gutena--photofeed-image-hover-opacity, 0.5 );
+            }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            opacity: 0;
-            transition: .5s ease;
-            background-color: var( --gutena--photofeed-image-hover-color, #008CBA );
-            cursor: pointer;
-        }
+            &.zoom-out {
+				img {
+					transform: scale(1.1);
+				}
+			}
 
-        .text {
-            color: white;
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate( -50%, -50% );
-            -ms-transform: translate( -50%, -50% );
-            transform: translate( -50%, -50% );
-            text-align: center;
+			&.rotate-out {
+				img {
+					transform: scale(1.1) rotate(3deg);
+				}
+			}
+
+            .instagram-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all 0.3s cubic-bezier(0.20, 0.60, 0.70, 0.80);
+            }
+    
+            .overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: all 0.4s ease-in-out;
+                background-color: var( --gutena--photofeed-image-hover-color, #008CBA );
+                cursor: pointer;
+    
+                .text {
+                    color: var( --gutena--photofeed-caption-hover-color, #fff );
+                    line-height: 1.5;
+                    font-size: 20px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    -webkit-transform: translate( -50%, -50% );
+                    -ms-transform: translate( -50%, -50% );
+                    transform: translate( -50%, -50% );
+                    text-align: center;
+                    opacity: 1;
+                    margin: 0;
+                }
+            }
         }
     }
 }
