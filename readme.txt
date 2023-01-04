@@ -61,7 +61,7 @@ If you like this plugin, consider exploring our other themes and plugins:
 == Changelog ==
 
 = 1.0.2 =
-Release Date: January 3, 2022
+Release Date: January 4, 2022
 
 * Added: Image Hover Effects.
 * Added: Option to toggle caption display on hover.
