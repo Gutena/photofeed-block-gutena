@@ -3,7 +3,7 @@ Contributors: expresstech, infosatech
 Tags: instagram, instagram feed, instagram gallery, instagram photos, instagram widget
 Requires at least: 5.8
 Tested up to: 6.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 5.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -24,6 +24,8 @@ Gutena PhotoFeed is a free and simple plugin for WordPress that allows you to di
 == Other Blocks From Gutena ==
 
 If you like this plugin, consider exploring our other block plugins: 
+
+[Gutena Tabs](https://wordpress.org/plugins/gutena-tabs/) - A simple and easy-to-use WordPress plugin which allows you to create beautiful tabs in your posts and pages.
 
 [Gutena Newsletter](https://wordpress.org/plugins/newsletter-block-by-gutena/) - Easily and instantly add Newsletter Block to your Gutenberg Editor.
 
@@ -59,6 +61,11 @@ If you like this plugin, consider exploring our other themes and plugins:
 1. Activate Gutena PhotoFeed from your Plugins page.
 
 == Changelog ==
+
+= 1.0.3 =
+Release Date: 10th February, 2023
+
+* Added: Gutena Kit CTA.
 
 = 1.0.2 =
 Release Date: January 4, 2022
