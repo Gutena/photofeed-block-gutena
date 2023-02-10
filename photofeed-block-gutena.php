@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Gutena PhotoFeed
  * Description:     PhotoFeed Gallery Block by Gutena
- * Version:         1.0.2
+ * Version:         1.0.3
  * Author:          ExpressTech
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Gutena_Instagram_Gallery' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '1.0.2';
+		public $version = '1.0.3';
 
 		/**
 		 * Instance of this class.
@@ -239,4 +239,9 @@ if ( ! function_exists( 'gutena_instagram_gallery_init' ) ) {
 
 	// Start it.
 	gutena_instagram_gallery_init();
+}
+
+// Gutena Ecosystem init.
+if ( file_exists( __DIR__ . '/includes/gutena/gutena-ecosys-onboard/gutena-ecosys-onboard.php' ) ) {
+	require_once  __DIR__ . '/includes/gutena/gutena-ecosys-onboard/gutena-ecosys-onboard.php';
 }
